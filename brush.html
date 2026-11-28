@@ -324,7 +324,13 @@
     margin:0 0 clamp(14px,2.4vh,26px);
     font-size:clamp(14px,2.2vh,24px); font-weight:800; color:var(--ink-soft);
   }
+  .celCard .celBtns{ display:flex; flex-direction:column; align-items:center; gap:clamp(6px,1vh,12px); }
   .celCard .btn{ padding:clamp(14px,2.2vh,22px) clamp(24px,3vw,44px); font-size:clamp(17px,2.5vh,28px); }
+  .celCard .btn.celClose{
+    padding:clamp(8px,1.2vh,12px) clamp(18px,2.2vw,30px);
+    font-size:clamp(13px,1.8vh,18px);
+    background:transparent; color:#7A8AA6; box-shadow:none;
+  }
   .spark{
     position:absolute; font-size:clamp(22px,4vh,40px); animation:sparkle 2.2s ease-in-out infinite;
     pointer-events:none;
@@ -478,7 +484,10 @@
     <div class="tooth">🦷✨</div>
     <h2>다 닦았어요!</h2>
     <p>이 사이사이 반짝반짝, 정말 잘했어요</p>
-    <button class="btn primary" id="againBtn" type="button">↺ 한 번 더 닦기</button>
+    <div class="celBtns">
+      <button class="btn primary" id="againBtn" type="button">↺ 한 번 더 닦기</button>
+      <button class="btn ghost celClose" id="closeCelebrate" type="button">그만하기</button>
+    </div>
     <span class="spark" style="left:4%;top:6%;">✨</span>
     <span class="spark" style="right:6%;top:12%;animation-delay:.5s;">⭐</span>
     <span class="spark" style="left:10%;bottom:12%;animation-delay:.9s;">💫</span>
@@ -975,6 +984,11 @@
   el("againBtn").addEventListener("click", function(){
     reset(true);
     setTimeout(start, 260);
+  });
+  el("closeCelebrate").addEventListener("click", function(){
+    el("celebrate").hidden = true;
+    clearConfetti();
+    toast("수고했어요!");
   });
 
   /* ====== 소리 토글 ====== */
