@@ -113,7 +113,7 @@
     overflow:hidden;
   }
   .ringWrap{
-    width:min(100%, 44vh, 48vw);
+    width:min(100%, 50vh, 48vw);
     aspect-ratio:1/1;
     position:relative; flex:0 0 auto;
   }
@@ -125,7 +125,7 @@
     transition:stroke-dashoffset .12s linear, stroke .4s ease;
   }
   .ringDots circle{ fill:#DDE9F2; transition:fill .3s ease, r .3s ease; }
-  .ringDots circle.done{ fill:var(--mint); }
+  .ringDots circle.done{ fill:#0A8A66; }
   .ringDots circle.now{ fill:var(--peach); }
   .ringCenter{
     position:absolute; inset:0;
@@ -433,8 +433,8 @@
         <svg class="ring" viewBox="0 0 220 220" aria-hidden="true">
           <defs>
             <linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#4BE0B8"/>
-              <stop offset="100%" stop-color="#0FA57B"/>
+              <stop offset="0%" stop-color="#57DCBB"/>
+              <stop offset="100%" stop-color="#14AE83"/>
             </linearGradient>
           </defs>
           <circle class="ring-track" cx="110" cy="110" r="96"/>
